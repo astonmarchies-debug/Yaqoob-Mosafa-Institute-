@@ -40,6 +40,7 @@ export default function App() {
   const [activeTab, setActiveTab] = useState<ActiveAppTab>('home');
   const [currentUser, setCurrentUser] = useState<ResearcherUser>(storageService.getActiveUser());
   const [searchQuery, setSearchQuery] = useState('');
+  const [selectedNarrativeId, setSelectedNarrativeId] = useState<string>('');
   const [studioSubTab, setStudioSubTab] = useState<'upload' | 'drafts' | 'proposals'>('upload');
   const [isChatbotOpen, setIsChatbotOpen] = useState(false);
 
@@ -193,11 +194,15 @@ export default function App() {
         onToggleChatbot={() => setIsChatbotOpen(!isChatbotOpen)}
         currentUser={currentUser}
         currentLanguage={currentLanguage}
+        searchQuery={searchQuery}
+        setSearchQuery={setSearchQuery}
+        onSelectDossier={handleSelectDossier}
+        onSelectNarrativeId={setSelectedNarrativeId}
       />
 
       {/* Macro-to-Micro Architectural Navigation Bar */}
       <nav aria-label="Macro-to-Micro Scale Taxonomy" className="border-b border-[#14231b] bg-[#040806] px-4 py-2 text-xs font-mono no-print">
-        <div className="max-w-7xl mx-auto flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
+        <div className="max-w-[1536px] mx-auto flex items-center justify-between gap-2 overflow-x-auto no-scrollbar">
           <div className="flex items-center gap-1.5 shrink-0 text-[#72877c] text-[11px]">
             <Layers className="w-3.5 h-3.5 text-[#c5a059]" />
             <span className="font-semibold text-[#a6bcaf]">{currentLanguage === 'ar' ? 'تصنيف المقياس:' : 'SCALE TAXONOMY:'}</span>
@@ -253,12 +258,12 @@ export default function App() {
             />
 
             {/* Gallery of Honor: Fictional Historical Scholars & Academic Senate */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
               <ScholarsGallery currentLanguage={currentLanguage} />
             </div>
 
             {/* Feature 1: AXCELNETICS (AKSELNETIKA) FOUNDATIONAL TREATISE */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
               <AkselnetikaSection
                 currentLanguage={currentLanguage}
                 currentUser={currentUser}
@@ -267,7 +272,7 @@ export default function App() {
             </div>
 
             {/* Feature 1B: COGNITIVE ATTRACTOR PHILOSOPHY & PSYCHO-HERMENEUTICS */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
               <PsychoHermeneuticsSection
                 currentLanguage={currentLanguage}
                 currentUser={currentUser}
@@ -276,7 +281,7 @@ export default function App() {
             </div>
 
             {/* Feature 2: YAQS-DOS OPERATOR TRAINING MODULE */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
               <TerminalCourseSection
                 dossiers={dossiers}
                 userName={currentUser.name}
@@ -289,7 +294,7 @@ export default function App() {
             </div>
 
             {/* Feature 3: TECHNICAL SKILLS & CALIBRATION SIMULATOR */}
-            <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
               <TechnicalSkillsTrainer
                 currentUser={currentUser}
                 currentLanguage={currentLanguage}
@@ -299,7 +304,7 @@ export default function App() {
 
             {/* Feature 4: ABNORMAL MODEL (PRINCIPAL ARCHITECT EXCLUSIVE) */}
             {currentUser.isDeveloper && (
-              <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+              <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8">
                 <DeveloperAbnormalModel currentUser={currentUser} />
               </div>
             )}
@@ -311,7 +316,7 @@ export default function App() {
         {activeTab === 'narration' && (
           <div className="py-2">
             {currentUser.isLoggedIn ? (
-              <NarrationSuite currentUser={currentUser} onOpenAuthModal={() => setIsAuthModalOpen(true)} />
+              <NarrationSuite currentUser={currentUser} onOpenAuthModal={() => setIsAuthModalOpen(true)} selectedNarrativeId={selectedNarrativeId} />
             ) : (
               <div className="max-w-4xl mx-auto px-4 py-16 text-center">
                 <div className="bg-[#050806] border border-[#5e4b30] rounded-2xl p-8 sm:p-12 shadow-2xl relative overflow-hidden">
@@ -439,7 +444,7 @@ export default function App() {
 
       {/* Institutional Classified Footer */}
       <footer className="mt-16 border-t border-[#16231c] bg-[#050807] py-8 text-xs font-mono text-[#6c7d74] no-print">
-        <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+        <div className="max-w-[1536px] mx-auto px-4 sm:px-6 lg:px-8 flex flex-col sm:flex-row items-center justify-between gap-4">
           <div className="flex items-center gap-3">
             <img
               src={ASSET_IMAGES.insignia}

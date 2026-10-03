@@ -79,13 +79,13 @@ export const calculateUserProgression = (user: ResearcherUser): ResearcherUser =
   const cleanEmail = user.email?.toLowerCase().trim() || '';
   const isAston = cleanEmail === 'astonmarchies@gmail.com' || user.id === 'dev-aston';
 
-  // Level 5 is STRICTLY EXCLUSIVE to Aston Marchies
+  // Level 6 is STRICTLY EXCLUSIVE to Aston Marchies
   if (isAston) {
     return {
       ...user,
       capability: 'PRINCIPAL_ARCHITECT',
       roleTitle: 'Principal Architect (System Creator)',
-      clearanceLevel: 5,
+      clearanceLevel: 6,
       isDeveloper: true,
       canApprove: true,
     };
@@ -119,7 +119,16 @@ export const calculateUserProgression = (user: ResearcherUser): ResearcherUser =
   }
 
   // Calculate progression based on active contribution
-  if (totalCustomDossiers >= 2) {
+  if (totalCustomDossiers >= 4 || (totalCustomDossiers >= 2 && totalComments >= 5)) {
+    return {
+      ...user,
+      capability: 'PRINCIPAL_ARCHITECT',
+      roleTitle: 'Master Curation Director',
+      clearanceLevel: 5,
+      isDeveloper: false,
+      canApprove: true,
+    };
+  } else if (totalCustomDossiers >= 2) {
     return {
       ...user,
       capability: 'THEORY_CREATOR',
@@ -589,4 +598,42 @@ export const storageService = {
       return [];
     }
   },
+
+  // === ACTIVITIES TELEMETRY ===
+  getActivities(): { id: string; timestamp: string; actor: string; action: string; category: 'like' | 'comment' | 'follow' | 'publish' }[] {
+    try {
+      const data = localStorage.getItem('ymi_activities_telemetry_v1');
+      if (!data) {
+        const defaults = [
+          { id: 'act-1', timestamp: '2 mins ago', actor: 'Aston Marchies', action: 'approved and archived the Bifurcation Vector dossier (YMI-CHAOS-014)', category: 'publish' },
+          { id: 'act-2', timestamp: '15 mins ago', actor: 'Dr. Tariq Al-Mansoor', action: 'liked Dr. Jamestock\'s "Greenwich Anomaly Logs"', category: 'like' },
+          { id: 'act-3', timestamp: '1 hour ago', actor: 'Dr. Vane', action: 'commented on the Al-Mizan Codex by Ibn Hamza', category: 'comment' },
+          { id: 'act-4', timestamp: '2 hours ago', actor: 'Dr. Aris Thorne', action: 'started following Franz Hamp', category: 'follow' },
+          { id: 'act-5', timestamp: '4 hours ago', actor: 'Mr. Hilal', action: 'published a new theoretical research proposal', category: 'publish' }
+        ];
+        localStorage.setItem('ymi_activities_telemetry_v1', JSON.stringify(defaults));
+        return defaults as any;
+      }
+      return JSON.parse(data);
+    } catch {
+      return [];
+    }
+  },
+
+  addActivity(actor: string, action: string, category: 'like' | 'comment' | 'follow' | 'publish'): void {
+    try {
+      const activities = this.getActivities();
+      const newActivity = {
+        id: `act-${Date.now()}`,
+        timestamp: 'Just now',
+        actor,
+        action,
+        category
+      };
+      const updated = [newActivity, ...activities].slice(0, 50); // Keep last 50
+      localStorage.setItem('ymi_activities_telemetry_v1', JSON.stringify(updated));
+    } catch (e) {
+      console.error(e);
+    }
+  }
 };

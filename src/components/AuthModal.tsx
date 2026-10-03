@@ -50,7 +50,7 @@ export const AuthModal: React.FC<AuthModalProps> = ({
       affiliation: isAston ? 'System Architect & Grand Curator' : (affiliationInput.trim() || 'Independent Researcher'),
       isDeveloper: isAston,
       canApprove: isAston,
-      clearanceLevel: isAston ? 5 : 1,
+      clearanceLevel: isAston ? 6 : 1,
     };
 
     // Calculate progression based on existing user activity
@@ -66,13 +66,13 @@ export const AuthModal: React.FC<AuthModalProps> = ({
       actorEmail: finalUser.email,
       ipTrace: '10.0.4.15 [DIRECT_GATEWAY_AUTHENTICATED]',
       details: isAston
-        ? 'Principal Architect (Aston Marchies) authenticated successfully. Level-5 master root clearance engaged.'
+        ? 'Principal Architect (Aston Marchies) authenticated successfully. Level-6 master root clearance engaged.'
         : `Researcher credentials registered for ${finalUser.name} (${finalUser.email}).`,
     });
 
     setNotice({
       text: isAston
-        ? 'Welcome back, Principal Architect Aston Marchies! Level-5 Root Clearance Enabled.'
+        ? 'Welcome back, Principal Architect Aston Marchies! Level-6 Master Root Clearance Enabled.'
         : `Successfully signed in as ${finalUser.name} (${finalUser.email})`,
       type: 'success',
     });

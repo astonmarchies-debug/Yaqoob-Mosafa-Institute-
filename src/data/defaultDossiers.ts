@@ -454,4 +454,61 @@ Isotopic Shift Index: Δm / m_0 = ∮ [ Φ_hermetic ∧ *dΦ ]`,
     imageUrl: ASSET_IMAGES.chaosChamber,
     isCustom: false,
   },
+  {
+    id: 'ymi-analytica-099',
+    protocolNumber: 'YMI-PST-ANALYTICA-099',
+    title: 'The Post-Socio-Psycho-Abnormal-Analytica Paradigm: Stirnerian Spooks & Psychosemantic Attractors',
+    subtitle: 'A Three-Tier Theoretical Framework on Automated Concept Phantasms, Noetic Abnormal Coupling, and Stochastic Hermeneutic Resonance',
+    attractorClass: 'Hyper-Entropy',
+    clearanceLevel: 5,
+    division: 'Department of Non-Linear Post-Socio Studies',
+    leadResearcher: 'Aston Marchies (Principal Architect)',
+    dateClassified: '03 October 2026',
+    lastRevision: '03 October 2026',
+    status: 'CRITICAL_ACTIVE',
+    lyapunovExponent: '+12.450 s⁻¹',
+    fractalDimension: 'D_H = 4.885 ± 0.002',
+    entropyRate: 'ΔS = 24.12 nats/it',
+    containmentProtocols: `1. THE SPOOK-DAMPENER PROTOCOL: All conceptual systems and philosophical phantasms of Tier I must be continuously exposed to Stirnerian deconstruction models to prevent the autonomous propagation of societal spooks.
+2. NOETIC-ABNORMAL SHIELDING: Direct mental comprehension of the Model II psychosemantic attractor requires Level-5 clearance. Low-clearance personnel must be shielded from raw theoretical outputs using Opto-Semantic Dampeners.
+3. ESTABLISHMENT OF EPISTEMIC QUARANTINE: To prevent total cognitive collapse ("devouring of the privileged beast's head"), exposure to Model III equations must be isolated within air-gapped terminal matrices in Vault 09.`,
+    mathematicalFormulation: `I. THE STIRNERIAN SPOOK-NETWORK VECTOR FIELD:
+dx/dt = σ (y - x) + ∑_{i=1}^N S_i(t)
+
+II. THE ABNORMAL PSYCHOSEMANTIC LIMIT CYCLE:
+dy/dt = x (ρ - z) - y - Ψ_abnormal(y)
+
+III. THE EPISTEMIC QUARANTINE BIFURCATION STABILITY:
+dz/dt = x y - β z - Φ_clearance(z)
+
+IV. THE SOCIO-RESONANT CONTAGION PROBABILITY:
+dP_i/dt = -γ P_i + (1 - P_i) · [REDACTED_MATHEMATICS]`,
+    description: `SECTION I: THE TRI-TIER PARADIGM OVERVIEW
+YMI-PST-ANALYTICA-099 establishes the Post-Socio-Psycho-Abnormal-Analytica framework within the Yaqoob Mosafa Institute. Formulated by Principal Architect Aston Marchies, this paradigm represents the highest tier of epistemic research, investigating the structural, cognitive, and abnormal dynamics that manifest when mathematical objective truths collide with subjective human socialisation.
+
+SECTION II: TIER I - THE STIRNERIAN PHANTASM (S_t)
+As Max Stirner asserted, systems within society are phantasms—or "spooks" of the mind—interacting automatically or otherwise. This tier formalises societal constructs (laws, states, collective moralities) as autonomous, self-replicating networks of ideas. Once injected into the cultural consciousness, these spooks gain independent momentum, forming an invisible web that consumes the cognitive focus of the human population.
+
+SECTION III: TIER II - NOETIC-ABNORMAL COUPLING (Ψ_A)
+This tier redefines psychopathology (such as hyper-associative patterns and cognitive fragmentation) as highly ordered, stable limit cycles within phase space. When the brain experiences epistemic trauma or high-energy concept exposure, it undergoes non-linear coupling with the surrounding deterministic noise, translating subjective abnormality into a precise geometric interface with higher dimensions.
+
+SECTION IV: TIER III - STOCHASTIC HERMENEUTIC RESONANCE (Ξ_C)
+On a macro-sociological level, human groups behave as high-entropy particles. This tier models the spread of beliefs, movements, and ideologies as phase-locking states triggered by stochastic noise. Belief systems do not spread through logic; they propagate via socio-resonant amplification. When noise levels cross a critical threshold, entire populations undergo immediate, irreversible synchronisation.`,
+    redactedSections: {
+      '[REDACTED_MATHEMATICS]': 'Ξ_stochastic(t) · exp(i · π · ℵ_0)',
+      '[REDACTED_LOCATION]': 'Subterranean Vault 09 (Absolute Isolation Core)',
+    },
+    experimentLogs: [
+      {
+        id: 'log-099-a',
+        timestamp: '03 October 2026, 01:12 UTC',
+        researcher: 'Aston Marchies (Principal Architect)',
+        notes: 'Successfully formulated the 3-Tier concept of Post-Socio-Psycho-Abnormal-Analytica. Simulated exposure to Model II psychosemantic attractor on terminal nodes. Checksum integrity scans recorded 100% stable phase-space confinement.',
+        outcome: 'OPTIMAL',
+      },
+    ],
+    tags: ['Stirner', 'Spook-Network', 'Abnormal-Analytica', 'Socio-Resonant', 'Noetic-Coupling'],
+    imageUrl: ASSET_IMAGES.strangeAttractor,
+    isCustom: false,
+  },
 ];

@@ -6,6 +6,7 @@ import { CommentSection } from './CommentSection';
 interface NarrationSuiteProps {
   currentUser: ResearcherUser;
   onOpenAuthModal?: () => void;
+  selectedNarrativeId?: string;
 }
 
 interface NarrativeTopic {
@@ -116,7 +117,7 @@ const PRESET_TOPICS: NarrativeTopic[] = [
   }
 ];
 
-export const NarrationSuite: React.FC<NarrationSuiteProps> = ({ currentUser, onOpenAuthModal }) => {
+export const NarrationSuite: React.FC<NarrationSuiteProps> = ({ currentUser, onOpenAuthModal, selectedNarrativeId }) => {
   const [topics, setTopics] = useState<NarrativeTopic[]>(() => {
     const saved = localStorage.getItem('ymi_custom_narratives');
     if (saved) {
@@ -151,6 +152,16 @@ export const NarrationSuite: React.FC<NarrationSuiteProps> = ({ currentUser, onO
   };
 
   const [selectedId, setSelectedId] = useState<string>(PRESET_TOPICS[0].id);
+
+  // Sync selectedId when selectedNarrativeId changes
+  useEffect(() => {
+    if (selectedNarrativeId) {
+      const exists = topics.some(t => t.id === selectedNarrativeId);
+      if (exists) {
+        setSelectedId(selectedNarrativeId);
+      }
+    }
+  }, [selectedNarrativeId, topics]);
   const [isPlaying, setIsPlaying] = useState(false);
   const [currentParagraphIdx, setCurrentParagraphIdx] = useState(0);
   const [playbackRate, setPlaybackRate] = useState(0.85); // UK Academic standard

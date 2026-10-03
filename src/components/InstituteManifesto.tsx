@@ -11,13 +11,20 @@ export const InstituteManifesto: React.FC<InstituteManifestoProps> = ({ currentL
   const t = TRANSLATIONS[currentLanguage];
   const isRtl = currentLanguage === 'ar';
 
-  const manifestos = {
+  const manifestos = ({
     en: {
       sealTitle: 'Hermeneutics of the Official Seal',
       sealBody: 'The medallion seal of the Yaqoob Mosafa Institute represents the formal synthesis between classical fractal polygon geometry and the non-commutative single invariant axiom.',
       point1: 'Golden Upright Pointer: The Singular Invariant — the primordial origin from which all universal bifurcations emerge.',
       point2: '16-Point Arabesque Star: Geometric projection of Poincaré phase space, symbolizing limit cycles that preserve cosmic balance.',
       point3: 'Emerald & Gold Palette: Timeless epistemic transmission from classical algebra observatories to modern non-linear physics.',
+    },
+    id: {
+      sealTitle: 'Hermeneutika Segel Resmi',
+      sealBody: 'Segel medali Institut Yaqoob Mosafa mewakili sintesis formal antara geometri poligon fraktal klasik dan aksioma invarian tunggal non-komutatif.',
+      point1: 'Penunjuk Emas Tegak: Invarian Tunggal — asal usul primordial dari mana semua bifurkasi kosmik muncul.',
+      point2: 'Bintang Arabesque 16 Titik: Proyeksi geometris dari ruang fasa Poincaré, melambangkan siklus batas yang menjaga keseimbangan alam semesta.',
+      point3: 'Palet Emerald & Emas: Transmisi epistemik abadi dari observatorium aljabar klasik ke fisika non-linear modern.',
     },
     ar: {
       sealTitle: 'التأويل الرمزي لشعار المعهد الرسمي',
@@ -26,7 +33,13 @@ export const InstituteManifesto: React.FC<InstituteManifestoProps> = ({ currentL
       point2: 'نجمة الأرابيسك ذات الـ16 نقطة: إسقاط هندسي لفضاء طور بوانكاريه يمثل دورات الحدود الحافظة للاتزان.',
       point3: 'الزمرد والذهب الخالص: ديمومة انتقال المعرفة العلمية من مراصد مراغة إلى فيزياء الديناميكا المعاصرة.',
     },
-  }[currentLanguage];
+  }[currentLanguage] || {
+    sealTitle: 'Hermeneutics of the Official Seal',
+    sealBody: 'The medallion seal of the Yaqoob Mosafa Institute represents the formal synthesis between classical fractal polygon geometry and the non-commutative single invariant axiom.',
+    point1: 'Golden Upright Pointer: The Singular Invariant — the primordial origin from which all universal bifurcations emerge.',
+    point2: '16-Point Arabesque Star: Geometric projection of Poincaré phase space, symbolizing limit cycles that preserve cosmic balance.',
+    point3: 'Emerald & Gold Palette: Timeless epistemic transmission from classical algebra observatories to modern non-linear physics.',
+  });
 
   return (
     <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8 py-12 font-sans" dir={isRtl ? 'rtl' : 'ltr'}>

@@ -8,7 +8,7 @@ export type AttractorClass =
   | 'Dispersive'            // Causal Dispersion Field
   | 'Hyperchaotic';         // Multi-Positive Lyapunov Exponents
 
-export type ClearanceLevel = 1 | 2 | 3 | 4 | 5;
+export type ClearanceLevel = 1 | 2 | 3 | 4 | 5 | 6;
 
 // Universal Roles Based on Real Researcher Capability
 export type UniversalCapability = 

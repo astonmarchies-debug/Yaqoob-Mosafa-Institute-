@@ -4,7 +4,8 @@ import { ASSET_IMAGES } from '../assets/images';
 import { 
   ArrowLeft, Printer, Shield, ShieldAlert, Lock, Unlock, 
   Copy, Check, Trash2, Eye, EyeOff, AlertTriangle, FileCode,
-  Paperclip, Image as ImageIcon, Video, FileText, Music, Download
+  Paperclip, Image as ImageIcon, Video, FileText, Music, Download,
+  Bookmark, Clock
 } from 'lucide-react';
 import { SupportedLanguage, TRANSLATIONS } from '../services/i18n';
 import { CommentSection } from './CommentSection';
@@ -45,6 +46,41 @@ export const DossierDetail: React.FC<DossierDetailProps> = ({
   const [copied, setCopied] = useState(false);
   const [revealedRedactions, setRevealedRedactions] = useState<{ [key: string]: boolean }>({});
   const hasClearance = userClearance >= dossier.clearanceLevel;
+
+  // Calculate estimated reading time
+  const calculateReadingTime = () => {
+    const textToRead = `${dossier.description} ${dossier.containmentProtocols} ${dossier.mathematicalFormulation}`;
+    const wordCount = textToRead.split(/\s+/).filter(Boolean).length;
+    const minutes = Math.max(1, Math.round(wordCount / 180)); // 180 WPM scholarly reading speed
+    return `${minutes} min read`;
+  };
+
+  const [isBookmarked, setIsBookmarked] = useState<boolean>(() => {
+    try {
+      const saved = localStorage.getItem('ymi_bookmarked_dossiers_v1');
+      const list: string[] = saved ? JSON.parse(saved) : [];
+      return list.includes(dossier.id);
+    } catch {
+      return false;
+    }
+  });
+
+  const handleToggleBookmark = () => {
+    try {
+      const saved = localStorage.getItem('ymi_bookmarked_dossiers_v1');
+      let list: string[] = saved ? JSON.parse(saved) : [];
+      if (list.includes(dossier.id)) {
+        list = list.filter(id => id !== dossier.id);
+        setIsBookmarked(false);
+      } else {
+        list.push(dossier.id);
+        setIsBookmarked(true);
+      }
+      localStorage.setItem('ymi_bookmarked_dossiers_v1', JSON.stringify(list));
+    } catch (e) {
+      console.error(e);
+    }
+  };
 
   const handleCopyCitation = () => {
     const citation = `Yaqoob Mosafa Institute. (${dossier.lastRevision.slice(-4)}). ${dossier.protocolNumber}: ${dossier.title}. Sector 04-A Archival Registry.`;
@@ -138,6 +174,19 @@ export const DossierDetail: React.FC<DossierDetailProps> = ({
               <span>Sensor Toggle</span>
             </button>
           )}
+
+          <button
+            onClick={handleToggleBookmark}
+            className={`flex items-center gap-1.5 px-3 py-1.5 text-xs font-mono rounded-md border transition-colors cursor-pointer ${
+              isBookmarked
+                ? 'bg-[#1c2d23] border-emerald-500 text-emerald-400 font-bold shadow-md'
+                : 'border-[#1f3026] text-[#8b9c93] hover:border-[#c5a059] hover:text-[#e5dfd3]'
+            }`}
+            title={isBookmarked ? 'Saved to Bookmarks' : 'Bookmark this Dossier'}
+          >
+            <Bookmark className={`w-3.5 h-3.5 ${isBookmarked ? 'fill-emerald-400' : ''}`} />
+            <span>{isBookmarked ? 'Saved ✓' : 'Save'}</span>
+          </button>
 
           <button
             onClick={handleCopyCitation}
@@ -254,6 +303,13 @@ export const DossierDetail: React.FC<DossierDetailProps> = ({
             <div>
               <span className="text-[#64746b] block text-[10px] uppercase">{t.detailRevisionDate}</span>
               <span className="text-[#e2ded6]">{dossier.lastRevision}</span>
+            </div>
+            <div>
+              <span className="text-[#64746b] block text-[10px] uppercase">Reading Time</span>
+              <span className="text-emerald-400 font-bold flex items-center gap-1">
+                <Clock className="w-3.5 h-3.5 text-emerald-500" />
+                <span>{calculateReadingTime()}</span>
+              </span>
             </div>
           </div>
 

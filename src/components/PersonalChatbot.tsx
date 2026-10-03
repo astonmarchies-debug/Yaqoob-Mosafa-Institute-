@@ -71,6 +71,23 @@ export const PersonalChatbot: React.FC<PersonalChatbotProps> = ({
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' });
   }, [messages, storageKey]);
 
+  const getSmartLocalResponse = (query: string): string | null => {
+    const q = query.toLowerCase();
+    if (q.includes('akselnetika') || q.includes('axcelnetics')) {
+      return `Akselnetika (Axcelnetics) is the pioneering non-linear dynamics framework formulated by Aston Marchies. It bridges deterministic chaos and stochastic noise, proving that high-entropy randomness acts as a rich information carrier. In simple terms: order is naturally embedded at the very heart of chaos! You can experiment with this in the "Resonance Field Simulator" on the home page!`;
+    }
+    if (q.includes('status') || q.includes('defcon') || q.includes('threat')) {
+      return `Current Security Status: DEFCON 5 (Normal Causal Coherence). The Causal Firewall is running on all ports. Active integrity scanning is fully operational 24/7. 0 system corruptions or database deviations have been logged in Sector 04-A today.`;
+    }
+    if (q.includes('attractor') || q.includes('lorenz')) {
+      return `A Strange Attractor is a fractional-dimension limit set in phase space toward which a chaotic system evolves. The Lorenz attractor, representing thermal atmospheric convection, is governed by a system of three non-linear differential equations. You can simulate and visualize this dynamic 3D integration in real-time in the "Chaos Lab"!`;
+    }
+    if (q.includes('aston') || q.includes('architect')) {
+      return `Aston Marchies is the Principal Architect, Grand Curator, and Sovereign System Authority of the Yaqoob Mosafa Institute. He constructed the modern digital repositories, designed the Chaos Lab models, and authored the foundational treatise on Axcelnetics.`;
+    }
+    return null;
+  };
+
   const handleSendMessage = async (e?: React.FormEvent) => {
     if (e) e.preventDefault();
     if (!input.trim() || isLoading) return;
@@ -92,6 +109,22 @@ export const PersonalChatbot: React.FC<PersonalChatbotProps> = ({
     setMessages(newHistory);
     setInput('');
     setIsLoading(true);
+
+    // Intercept with smart local informational responses first (real-time 24/7)
+    const localResp = getSmartLocalResponse(userMsgText);
+    if (localResp) {
+      setTimeout(() => {
+        const assistantMsg: ChatMessage = {
+          id: `assistant-${Date.now()}`,
+          role: 'assistant',
+          content: localResp,
+          timestamp: new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' }),
+        };
+        setMessages((prev) => [...prev, assistantMsg]);
+        setIsLoading(false);
+      }, 750);
+      return;
+    }
 
     try {
       const apiMessages = newHistory.map((m) => ({
@@ -297,6 +330,27 @@ export const PersonalChatbot: React.FC<PersonalChatbotProps> = ({
               <span className="text-[#5f7368] shrink-0 font-semibold">Prompts:</span>
               <button
                 type="button"
+                onClick={() => setInput('Explain Akselnetika')}
+                className="px-2 py-1 rounded bg-[#0d1712] hover:bg-[#16271e] border border-[#1f3328] text-emerald-400 shrink-0 transition-colors font-bold"
+              >
+                🧬 Akselnetika
+              </button>
+              <button
+                type="button"
+                onClick={() => setInput('System Status & DEFCON')}
+                className="px-2 py-1 rounded bg-[#0d1712] hover:bg-[#16271e] border border-[#1f3328] text-sky-400 shrink-0 transition-colors font-bold"
+              >
+                📡 System Status
+              </button>
+              <button
+                type="button"
+                onClick={() => setInput('Explain Lorenz Strange Attractors')}
+                className="px-2 py-1 rounded bg-[#0d1712] hover:bg-[#16271e] border border-[#1f3328] text-amber-400 shrink-0 transition-colors font-bold"
+              >
+                🌀 Strange Attractors
+              </button>
+              <button
+                type="button"
                 onClick={() => setInput('Analyze the chaos and Lyapunov exponent of my current dossier.')}
                 className="px-2 py-1 rounded bg-[#0d1712] hover:bg-[#16271e] border border-[#1f3328] text-[#a4b8ac] shrink-0 transition-colors"
               >
@@ -304,17 +358,10 @@ export const PersonalChatbot: React.FC<PersonalChatbotProps> = ({
               </button>
               <button
                 type="button"
-                onClick={() => setInput('Help me draft a new research theory on non-linear systems.')}
+                onClick={() => setInput('Help me draft a new research theory.')}
                 className="px-2 py-1 rounded bg-[#0d1712] hover:bg-[#16271e] border border-[#1f3328] text-[#a4b8ac] shrink-0 transition-colors"
               >
                 💡 Draft Theory
-              </button>
-              <button
-                type="button"
-                onClick={() => setInput('Explain the mathematical formulation and differential equations of the current active anomaly.')}
-                className="px-2 py-1 rounded bg-[#0d1712] hover:bg-[#16271e] border border-[#1f3328] text-[#a4b8ac] shrink-0 transition-colors"
-              >
-                🔬 Math Equations
               </button>
             </div>
           )}

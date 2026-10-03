@@ -28,10 +28,18 @@ export const MyWorksView: React.FC<MyWorksViewProps> = ({
   const [drafts, setDrafts] = useState<SandboxDraft[]>([]);
   const [notice, setNotice] = useState<{ text: string; type: 'success' | 'error' } | null>(null);
 
+  const [bookmarkedIds, setBookmarkedIds] = useState<string[]>([]);
+
   useEffect(() => {
     if (currentUser.id) {
       setDrafts(storageService.getDrafts(currentUser.id));
     }
+    try {
+      const saved = localStorage.getItem('ymi_bookmarked_dossiers_v1');
+      if (saved) {
+        setBookmarkedIds(JSON.parse(saved));
+      }
+    } catch {}
   }, [currentUser.id]);
 
   // Filter works created by or attributed to the active user
@@ -42,6 +50,18 @@ export const MyWorksView: React.FC<MyWorksViewProps> = ({
     const emailMatch = currentUser.email ? d.leadResearcher.toLowerCase().includes(currentUser.email.toLowerCase()) : false;
     return authorMatch || emailMatch;
   });
+
+  const bookmarkedDossiers = dossiers.filter(d => bookmarkedIds.includes(d.id));
+
+  const handleRemoveBookmark = (id: string) => {
+    const updated = bookmarkedIds.filter(bid => bid !== id);
+    setBookmarkedIds(updated);
+    try {
+      localStorage.setItem('ymi_bookmarked_dossiers_v1', JSON.stringify(updated));
+    } catch {}
+    setNotice({ text: "Removed document from saved bookmarks.", type: 'success' });
+    setTimeout(() => setNotice(null), 3000);
+  };
 
   const handleDeleteDossier = (id: string, title: string) => {
     if (!window.confirm(`Are you sure you want to delete "${title}"? This action is permanent.`)) return;
@@ -260,6 +280,64 @@ export const MyWorksView: React.FC<MyWorksViewProps> = ({
                     title="Delete Draft"
                   >
                     <Trash2 className="w-3.5 h-3.5" />
+                  </button>
+                </div>
+              </div>
+            ))}
+          </div>
+        )}
+      </section>
+
+      {/* Section 3: Bookmarked Archives */}
+      <section className="mb-10 space-y-4">
+        <div className="flex items-center justify-between text-xs font-mono text-[#8a9e91]">
+          <h3 className="font-bold text-[#f5eedf] uppercase tracking-wider text-sm flex items-center gap-1.5">
+            <BookOpen className="w-4 h-4 text-[#c5a059]" />
+            <span>Saved Bookmarks ({bookmarkedDossiers.length})</span>
+          </h3>
+          <span>Interactive Reference Vault</span>
+        </div>
+
+        {bookmarkedDossiers.length === 0 ? (
+          <div className="p-8 text-center bg-[#070c09]/30 border border-[#14231a] rounded-xl text-xs font-mono text-[#5e7566] italic">
+            You have not bookmarked any classified dossiers yet. Bookmark dossiers in the main archives tab to save them for easy reference!
+          </div>
+        ) : (
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+            {bookmarkedDossiers.map((dossier) => (
+              <div
+                key={dossier.id}
+                className="p-4 bg-[#050906] border border-[#14231b] hover:border-[#c5a059]/30 rounded-xl transition-all flex flex-col justify-between gap-3 shadow-md"
+              >
+                <div>
+                  <div className="flex items-center justify-between gap-2">
+                    <span className="text-[10px] font-mono font-bold text-[#c5a059] px-2 py-0.5 rounded bg-[#101c15] border border-[#1e3427]">
+                      {dossier.protocolNumber}
+                    </span>
+                    <span className="text-[9px] font-mono text-[#5e7566] truncate max-w-[150px]">{dossier.division}</span>
+                  </div>
+                  <h4 className="text-sm font-display font-bold text-[#ded9cd] mt-2 truncate">
+                    {dossier.title}
+                  </h4>
+                  <p className="text-[11px] text-[#8ca395] line-clamp-1 italic mt-0.5 font-editorial">
+                    {dossier.subtitle}
+                  </p>
+                </div>
+
+                <div className="flex items-center justify-between pt-2.5 border-t border-[#121f17] text-xs font-mono">
+                  <button
+                    onClick={() => onSelectDossier(dossier)}
+                    className="text-[#c5a059] hover:underline font-bold cursor-pointer"
+                  >
+                    Read Reference
+                  </button>
+
+                  <button
+                    onClick={() => handleRemoveBookmark(dossier.id)}
+                    className="text-rose-400/80 hover:text-rose-300 font-bold text-[10px] uppercase cursor-pointer"
+                    title="Remove Bookmark"
+                  >
+                    Unsave
                   </button>
                 </div>
               </div>

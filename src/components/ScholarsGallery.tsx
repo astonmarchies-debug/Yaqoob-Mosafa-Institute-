@@ -60,7 +60,7 @@ const SCHOLARS: Scholar[] = [
 ];
 
 interface ScholarsGalleryProps {
-  currentLanguage: 'en' | 'ar';
+  currentLanguage: 'id' | 'en' | 'ar';
 }
 
 export const ScholarsGallery: React.FC<ScholarsGalleryProps> = ({ currentLanguage }) => {

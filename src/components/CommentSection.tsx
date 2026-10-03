@@ -39,6 +39,13 @@ export const CommentSection: React.FC<CommentSectionProps> = ({
   const handleToggleReaction = (type: 'like' | 'dislike') => {
     const updated = storageService.toggleReaction(targetId, type, currentUser.id);
     setReaction(updated);
+    if (currentUser.isLoggedIn) {
+      storageService.addActivity(
+        currentUser.name,
+        `${type === 'like' ? 'liked' : 'disliked'} "${targetTitle}"`,
+        'like'
+      );
+    }
   };
 
   const handlePostComment = (e: React.FormEvent) => {
@@ -69,6 +76,7 @@ export const CommentSection: React.FC<CommentSectionProps> = ({
 
     const updatedComments = storageService.addComment(comment);
     setComments(updatedComments);
+    storageService.addActivity(currentUser.name, `commented on "${targetTitle}"`, 'comment');
     setNewCommentText('');
     setNotice(null);
   };
@@ -97,6 +105,7 @@ export const CommentSection: React.FC<CommentSectionProps> = ({
 
     const updatedComments = storageService.addCommentReply(commentId, reply, targetId);
     setComments(updatedComments);
+    storageService.addActivity(currentUser.name, `replied to comment on "${targetTitle}"`, 'comment');
     setReplyText('');
     setReplyingToId(null);
   };
