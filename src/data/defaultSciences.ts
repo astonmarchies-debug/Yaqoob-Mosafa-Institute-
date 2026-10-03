@@ -1,0 +1,77 @@
+import { ScienceBranch } from '../types/dossier';
+
+export const DEFAULT_SCIENCE_BRANCHES: ScienceBranch[] = [
+  {
+    id: 'sci-akselnetika',
+    name: 'Axcelnetics (Theory of Resonance Propagation)',
+    category: 'Systems & Cybernetics',
+    founder: 'Aston Marchies & Foundational Archivists',
+    founderBadgeId: 'DEV-001',
+    division: 'Division of Non-Linear Dynamics',
+    dateCreated: '02 October 2026',
+    status: 'INSTITUTE_VERIFIED',
+    coreParadigm: 'Investigates how minute fluctuations, vibrations, ideas, or localized anomalies propagate contagiously across interconnected systems without direct mechanical contact. Axcelnetics conceptualizes physical reality not as a collection of isolated bodies, but as a dense web of resonance manifolds wherein a perturbation at any given node inevitably vibrates the furthest reaches of the phase space.',
+    foundingAxioms: [
+      'Principle 1 (Sympathetic Resonance Propagation): Every event possesses a distinct contagion frequency. If surrounding nodes share harmonic compatibility, the state propagates autonomously without intermediary conduits.',
+      'Principle 2 (The Silent Ripple Cascade): The most catastrophic systemic transformations originate from trivial initial perturbations—a single whisper that overturns an empire, or a minute mathematical discrepancy that redefines a physical constant.',
+      'Principle 3 (Network Saturation Threshold): Once an anomalous trajectory reaches critical density within a closed system, it ceases to require active propagators; it becomes the pervasive atmospheric condition of the environment.',
+    ],
+    chaosOrderDynamic: 'In the quiescent state (Order), each trajectory remains localized. When excited by Axcelnetic resonance, subtle ripples cascade outwards, jumping between independent phase spaces to induce irreversible macroscopic coherence.',
+    masterEquation: 'Initial Ripple ➔ Harmonic Resonance ➔ Macroscopic Contagion [Qualitative Phase-Space Formulation]',
+    parameters: [
+      { name: 'Propagation Velocity', symbol: 'R_prop', defaultValue: 3.5, min: 1, max: 10, description: 'Rate of state contagion across adjacent nodes' },
+      { name: 'Network Coupling Density', symbol: 'K_net', defaultValue: 2.4, min: 0.5, max: 8, description: 'Inter-nodal topological connectivity strength' },
+    ],
+    associatedProtocols: ['YMI-CHAOS-014', 'YMI-AXCEL-103'],
+    tags: ['Axcelnetics', 'Resonance', 'Contagion', 'Phase Space', 'Foundational'],
+  },
+  {
+    id: 'sci-memetics-rottenology',
+    name: 'Memetics & Algorithmic Rottenology',
+    category: 'Virtual Dynamics & Cybernetics',
+    founder: 'Dr. Aston Marchies & Dr. Vane',
+    founderBadgeId: 'DEV-001',
+    division: 'Department of Semiotic Memetics & Rottenology',
+    dateCreated: '02 October 2026',
+    status: 'INSTITUTE_VERIFIED',
+    coreParadigm: 'Examines the systemic degradation of human cognitive focus caused by autonomous AI-generated content (AI Slop), self-replicating memetic loops, and non-reality virtual-scape entities across digital communication networks (Tik-Chron, Tube-Stream, Disc-Chord). The discipline combines semiotics, viral neural mechanics, and non-linear decay dynamics.',
+    foundingAxioms: [
+      'Principle 1 (Sub-Cognitive Attractor Capture): Short-form algorithmic media creates high-entropy strange attractors that trap human neural attention in micro-dopamine loops.',
+      'Principle 2 (Autonomous AI Slop Mutation): Non-reality virtual-scape entities (e.g. Entity-808) generate self-replicating audio-visual brainrot memes that bypass critical cognitive reasoning.',
+      'Principle 3 (Rottenology Decay Criterion): Prolonged exposure to unbuffered memetic loops induces permanent attenuation of the observers attention span and logical cohesion.',
+    ],
+    chaosOrderDynamic: 'Coherent intellectual focus (Order) degrades into hyper-fragmented attention rot (Chaos) under the continuous bombardment of autonomous algorithmic meme streams.',
+    masterEquation: 'dM_i/dt = γ_feed · M_i · (1 - M_i/K) + ∑_j J_ij · S_rot(M_j) - λ_decay',
+    parameters: [
+      { name: 'Algorithmic Feedback Gain', symbol: 'γ_feed', defaultValue: 8.5, min: 1, max: 10, description: 'Speed of neural recommendation loop binding' },
+      { name: 'Memetic Rot Entropy', symbol: 'S_rot', defaultValue: 9.2, min: 1, max: 10, description: 'Rate of human cognitive focus attenuation' },
+    ],
+    associatedProtocols: ['YMI-MEME-808'],
+    tags: ['Memetics', 'Rottenology', 'Virtual-Scape', 'Brainrot', 'AI-Slop', 'Entity-808'],
+  },
+  // CLASSIFIED ABNORMAL SCIENTIFIC MODEL: EXCLUSIVELY ACCESSIBLE TO THE PRINCIPAL ARCHITECT (ASTON MARCHIES)
+  {
+    id: 'sci-aporia-abnormal-classified',
+    name: 'Aporia-Cryptica: Non-Causal Obscura Hermeneutics',
+    category: 'Methodology & Epistemic Absurdism',
+    founder: 'Aston Marchies (The Architect)',
+    founderBadgeId: 'DEV-001',
+    division: 'Council of Curatorial Axioms',
+    dateCreated: '02 October 2026',
+    status: 'INSTITUTE_VERIFIED',
+    coreParadigm: '⟦OMEGA-0 HERMETIC PROTOCOL⟧: ∰_∅ [Ψ_chronic ⊗ ∇_absurd] ⇋ ℵ_aleph(0) ⨁ Axiomatic Collapse. A severe epistemic anomaly wherein consequence precedes cause within self-folding chronological loops. Formal logic collapses into hermetic geometry unresolvable by conventional linear computation.',
+    foundingAxioms: [
+      'Axiom α-Cryptic: ∇·B(t) ≢ 0 ⨂ "A proposition is true precisely because it refutes its own truth condition prior to articulation."',
+      'Axiom β-Cryptic: ∮_C [A_obscura · dℓ] = -∂/∂t ∬_S [Causal_Decay] · dS. Epistemic manifolds freeze when observed by external entities.',
+      'Axiom γ-Cryptic: Aporia Singularities admit no inverse operators. Unauthorized decryption induces irreversible perceptual distortion.',
+    ],
+    chaosOrderDynamic: 'Rational order collapses into hyper-anarchic meaning (Aporia). Reality behaves as an encrypted parchment that erases its own ink as it is read.',
+    masterEquation: '§[Aporia] := lim_{t→-∞} ⨂ [Reason(t) ⊘ Paradox(t+Δt)] ⟹ ∅_obscura',
+    parameters: [
+      { name: 'Absurdity Gradient', symbol: '∇_abs', defaultValue: 9.9, min: 1, max: 10, description: 'Intensity of causal logic obscurity' },
+      { name: 'Paradox Divergence', symbol: 'div_P', defaultValue: 8.7, min: 1, max: 10, description: 'Rate of semantic structural breakdown' },
+    ],
+    associatedProtocols: ['YMI-AXIOM-001', 'YMI-PARADOX-Ω'],
+    tags: ['Highest Clearance', 'Developer Exclusive', 'Aporia', 'Encrypted'],
+  },
+];

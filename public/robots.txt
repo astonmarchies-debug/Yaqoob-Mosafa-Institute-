@@ -1,0 +1,38 @@
+# Robots.txt for Yaqoob Mosafa Institute (YMI)
+# Official Archival Repository: https://yaqoobmosafainstitute.com
+
+User-agent: *
+Allow: /
+Allow: /index.html
+Allow: /assets/
+
+# Disallow internal control planes, dev endpoints, and private proxies
+Disallow: /__aistudio_internal_control_plane/
+Disallow: /api/
+Disallow: /dev/
+Disallow: /private/
+Disallow: /_internal/
+
+# Social Media Crawlers explicitly permitted for OpenGraph previews
+User-agent: Googlebot
+Allow: /
+
+User-agent: Bingbot
+Allow: /
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+User-agent: LinkedInBot
+Allow: /
+
+User-agent: WhatsApp
+Allow: /
+
+# Host Declaration & Sitemap
+Host: https://yaqoobmosafainstitute.com
+Sitemap: https://yaqoobmosafainstitute.com/sitemap.xml
+

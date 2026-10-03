@@ -1,0 +1,6 @@
+{
+  "name": "Yaqoob Mosafa Institute",
+  "description": "Official classified archive of the Yaqoob Mosafa Institute (معهد يعقوب مصافا). Documentation of epistemic anomalies, chaos theory, non-linear dynamics, and applied randomness science.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

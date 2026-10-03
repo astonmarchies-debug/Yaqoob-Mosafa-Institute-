@@ -1,0 +1,112 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:xhtml="http://www.w3.org/1999/xhtml">
+
+  <!-- ================= 1. PRIMARY PORTAL & CORE PAGES ================= -->
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>1.0</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?lang=ar"/>
+  </url>
+
+  <!-- ================= 2. DEDICATED ARCHIVE REPOSITORY ================= -->
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/?tab=archive</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>daily</changefreq>
+    <priority>0.9</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?tab=archive&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?tab=archive&amp;lang=ar"/>
+  </url>
+
+  <!-- ================= 3. CLASSIFIED DOSSIER PERMALINKS ================= -->
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/?dossier=ymi-chaos-014</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?dossier=ymi-chaos-014&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?dossier=ymi-chaos-014&amp;lang=ar"/>
+  </url>
+
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/?dossier=ymi-epistemic-089</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?dossier=ymi-epistemic-089&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?dossier=ymi-epistemic-089&amp;lang=ar"/>
+  </url>
+
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/?dossier=ymi-axcel-103</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?dossier=ymi-axcel-103&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?dossier=ymi-axcel-103&amp;lang=ar"/>
+  </url>
+
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/?dossier=ymi-chrono-221</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.85</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?dossier=ymi-chrono-221&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?dossier=ymi-chrono-221&amp;lang=ar"/>
+  </url>
+
+  <!-- ================= 4. SCIENTIFIC DIRECTORY & BRANCHES ================= -->
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/?tab=sciences</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?tab=sciences&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?tab=sciences&amp;lang=ar"/>
+  </url>
+
+  <!-- ================= 5. RESEARCH SANDBOX & DRAFTS ================= -->
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/?tab=sandbox</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?tab=sandbox&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?tab=sandbox&amp;lang=ar"/>
+  </url>
+
+  <!-- ================= 6. CHAOS NUMERICAL SIMULATOR ================= -->
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/?tab=chaoslab</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.8</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?tab=chaoslab&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?tab=chaoslab&amp;lang=ar"/>
+  </url>
+
+  <!-- ================= 7. INSTITUTE FOUNDING MANIFESTO ================= -->
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/?tab=manifesto</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.75</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?tab=manifesto&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?tab=manifesto&amp;lang=ar"/>
+  </url>
+
+  <!-- ================= 8. YAQS-DOS TERMINAL CONSOLE ================= -->
+  <url>
+    <loc>https://yaqoobmosafainstitute.com/?tab=terminal</loc>
+    <lastmod>2026-10-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+    <xhtml:link rel="alternate" hreflang="en" href="https://yaqoobmosafainstitute.com/?tab=terminal&amp;lang=en"/>
+    <xhtml:link rel="alternate" hreflang="ar" href="https://yaqoobmosafainstitute.com/?tab=terminal&amp;lang=ar"/>
+  </url>
+
+</urlset>
