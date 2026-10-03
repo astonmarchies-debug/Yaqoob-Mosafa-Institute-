@@ -81,7 +81,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           { 
             id: 'notif-welcome', 
             title: `Credential Authentication Successful`, 
-            body: `Welcome, ${currentUser.name}! Your Level-${currentUser.clearanceLevel} clearance has been synced in real-time.`, 
+            body: `Welcome, ${currentUser.name}! Your Level-${currentUser.clearanceLevel} clearance has been synchronised in real-time.`, 
             type: 'system', 
             timestamp: 'Just now', 
             read: false 
@@ -105,7 +105,7 @@ export const Navbar: React.FC<NavbarProps> = ({
           { 
             id: 'notif-3', 
             title: 'Security Advisory', 
-            body: 'Institute firewall status: Active. 12 unauthorized access attempts blocked.', 
+            body: 'Institute firewall status: Active. 12 unauthorised access attempts blocked.', 
             type: 'security', 
             timestamp: '3 hours ago', 
             read: true 
@@ -466,7 +466,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             </button>
 
             {showNotifications && (
-              <div className="absolute right-0 top-10 w-72 sm:w-80 bg-[#080d0a]/98 border border-[#23382c] rounded-xl shadow-2xl p-4 space-y-4 z-50 backdrop-blur-md font-sans">
+              <div className="fixed right-4 left-4 top-14 md:absolute md:right-0 md:left-auto md:top-10 md:w-80 bg-[#080d0a]/98 border border-[#23382c] rounded-xl shadow-2xl p-4 space-y-4 z-50 backdrop-blur-md font-sans">
                 {!currentUser.isLoggedIn ? (
                   <div className="text-center py-6 space-y-3.5">
                     <div className="w-10 h-10 rounded-full bg-amber-950/40 border border-amber-800/80 flex items-center justify-center text-[#c5a059] mx-auto animate-pulse">
@@ -477,7 +477,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                         Real-Time Intel Locked
                       </h4>
                       <p className="text-[10.5px] text-[#718478] leading-relaxed max-w-[240px] mx-auto font-sans">
-                        Silakan masuk ke akun peneliti Anda untuk mengaktifkan pelacakan notifikasi, sensor, dan telemetri langsung secara real-time.
+                        Please sign in with your researcher credentials to synchronise real-time notifications, peer-review comments, and system telemetry feeds.
                       </p>
                     </div>
                     <button
@@ -487,7 +487,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                       }}
                       className="w-full py-1.5 rounded-lg bg-[#c5a059] hover:bg-[#d8b26a] text-black font-mono font-bold text-[10.5px] transition-all cursor-pointer shadow-md"
                     >
-                      MASUK SEKARANG
+                      SIGN IN NOW
                     </button>
                   </div>
                 ) : (
