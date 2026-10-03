@@ -1,5 +1,6 @@
 import React from 'react';
 import { Award, BookOpen, Orbit, Star, Sparkles } from 'lucide-react';
+import { ASSET_IMAGES } from '../assets/images';
 
 interface Scholar {
   name: string;
@@ -18,7 +19,7 @@ const SCHOLARS: Scholar[] = [
     era: "14th Century (Baghdad / Aleppo)",
     bio: "Pioneered the early geometric modelling of non-linear state spaces in the Islamic Golden Age. Through his celestial manuscripts, he designed recursive calculations to balance dynamic gravitational anomalies, layting the groundwork for chaotic attractors.",
     achievement: "The Al-Mizan Geometry (Foundational Lorenz Attractor Principle)",
-    image: "/src/assets/images/ibn_hamza_portrait_1791000050606.jpg",
+    image: ASSET_IMAGES.ibnHamza,
     icon: Orbit
   },
   {
@@ -27,7 +28,7 @@ const SCHOLARS: Scholar[] = [
     era: "Victorian Era (1842 - 1911)",
     bio: "A British mathematical physicist who dedicated his life to mapping planetary perturbations and thermal currents. His work unified classical Newtonian mechanics with early quantum chaos, characterised by extreme intellectual rigour.",
     achievement: "Jamestock's Cosmic Regression Constant (452Hz Harmonic Vector)",
-    image: "/src/assets/images/dr_jamestock_portrait_1791000068217.jpg",
+    image: ASSET_IMAGES.drJamestock,
     icon: Star
   },
   {
@@ -36,7 +37,7 @@ const SCHOLARS: Scholar[] = [
     era: "Early 20th Century (Vienna / Jena)",
     bio: "Coined the term 'Axcelnetics' to describe how human cognitive waves align with the periodic oscillation of cosmic star systems. His profound experiments in Vienna proved the link between neural state spaces and deep astrophysical geometry.",
     achievement: "The Cognitive Hermeneutics Matrix (Axcelnetics Core Paradigm)",
-    image: "/src/assets/images/franz_hamp_portrait_1791000082365.jpg",
+    image: ASSET_IMAGES.franzHamp,
     icon: BookOpen
   },
   {
@@ -45,7 +46,7 @@ const SCHOLARS: Scholar[] = [
     era: "Mughal Empire (17th Century)",
     bio: "Built massive brass astrolabes to chart stellar movements across the forbidden Theta Quadrant. His highly detailed star catalogues catalogued gravitational pockets that classical astronomers of his time dismissed as mere dust.",
     achievement: "The Khan Stellar Catalogue (Anomalous Gravity Trajectories)",
-    image: "/src/assets/images/abdul_khan_portrait_1791000096440.jpg",
+    image: ASSET_IMAGES.abdulKhan,
     icon: Sparkles
   },
   {
@@ -54,7 +55,7 @@ const SCHOLARS: Scholar[] = [
     era: "Ottoman Empire (18th Century)",
     bio: "An alchemist who discovered the molecular vibration linking organic matter to the cosmic background resonance. His alchemical equations established the initial spiritual and material synthesis of the Yaqoob Mosafa Institute.",
     achievement: "Al-Kimiya Al-Falak Resonance Laws (Macro-Micro Cosmic Union)",
-    image: "/src/assets/images/suleiman_altamrin_portrait_1791000118162.jpg",
+    image: ASSET_IMAGES.suleimanAltamrin,
     icon: Award
   }
 ];
